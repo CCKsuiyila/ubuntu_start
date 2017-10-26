@@ -9,7 +9,7 @@ import com.sun.j3d.utils.behaviors.mouse.*;
 import javax.media.j3d.*;
 import javax.vecmath.*;
 
-public class DisplayPoints extends Applet {
+public class DisplayLines extends Applet {
     public BranchGroup createBranchGroup() {
         BranchGroup BranchGroupRoot = new BranchGroup();
         BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
@@ -17,7 +17,12 @@ public class DisplayPoints extends Applet {
         Background bg = new Background(bgColor);
         bg.setApplicationBounds(bounds);
         BranchGroupRoot.addChild(bg);
-        
+
+        Color3f directionalColor = new Color3f(1.f, 0.f, 0.f);
+        Vector3f vec = new Vector3f(0.f, 0.f, -1.0f);
+        DirectionalLight directionalLight = new DirectionalLight(directionalColor, vec);
+        directionalLight.setInfluencingBounds(bounds);
+        BranchGroupRoot.addChild(directionalLight);
         TransformGroup transformgroup = new TransformGroup();
         transformgroup.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
         transformgroup.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
@@ -38,32 +43,46 @@ public class DisplayPoints extends Applet {
         BranchGroupRoot.addChild(mousetranslate);
         mousetranslate.setSchedulingBounds(bounds);
 
-        Shape3D shapepoints = new Shape3D();
-        float vertexes[]={.5f,0.6f,0.0f, -0.5f,0.6f,0.0f,
-                          0.5f,0.05f,0.0f, -0.5f,0.05f,0.f,
-                          -0.5f,-0.7f,0.0f, 0.5f,-0.7f,0.1f,};
-        float pointcolors[]={1.0f,0.f,0.0f, 0.0f,1.0f,0.0f,
-                             0.0f,0.f,1.0f, 1.0f,1.0f,0.f,
-                             0.0f,1.0f,1.f, 1.0f,0.f,1.f,};
-        int vCount=6;
-        PointArray points=new PointArray(vCount,PointArray.COORDINATES|PointArray.COLOR_3);
-        points.setCoordinates(0,vertexes);
-        points.setColors(0,pointcolors);
-        Appearance app=new Appearance();
-        PointAttributes pointsattributes=new PointAttributes();
-        pointsattributes.setPointSize(70.0f);
-        pointsattributes.setPointAntialiasingEnable(true);
-        app.setPointAttributes(pointsattributes);
-        shapepoints.setGeometry(points);
-        shapepoints.setAppearance(app);
-        transformgroup.addChild(shapepoints);
+        transformgroup.addChild(Striplines());
         BranchGroupRoot.compile();
         return BranchGroupRoot;
     }
-    public DisplayPoints() {
-        setLayout(new BorderLayout());
-        Panel p = new Panel();
-    	p.add(new Label("学号 20151681310309 姓名：郑鹏"));
+
+ 	public Shape3D Striplines() {
+        Shape3D Striplines0 = new Shape3D();
+		//定义点坐标
+		float vertexes[]={	.8f, 0.5f,0.0f,  -0.8f, 0.5f, 0.0f,
+    					  	0.8f, 0.0f,0.0f,  -0.8f, 0.0f, 0.0f,
+    						0.8f,-0.5f,0.0f,  -0.8f,-0.5f, 0.0f,
+    						0.0f,-0.5f,0.0f,   0.0f, 0.5f, 0.0f
+    					};
+		//定义点的颜色
+		float colors[]={ 	1.0f,0.f,.0f,  0.0f,1.f,.0f,
+   	    					0.0f,0.f,1.f,  1.0f,1.0f,0.f,
+          					0.0f,1.0f,1.f, 1.f,0.f,1.0f,
+        					0.0f,.0f,0.f,  0.3f,0.8f,0.0f
+        		       };
+   		//定义线数组
+		LineArray lines=new LineArray(8,LineArray.COORDINATES|LineArray.COLOR_3);
+  	  	lines.setCoordinates(0,vertexes);
+  	  	lines.setColors(0,colors);
+  		//定义线属性
+		LineAttributes lineattributes=new LineAttributes();
+  	  	lineattributes.setLineWidth(9.0f);
+  	  	lineattributes.setLineAntialiasingEnable(true);
+  	  	lineattributes.setLinePattern(0);
+  		Appearance app=new Appearance();  
+ 	  	app.setLineAttributes(lineattributes);
+ 		Striplines0.setGeometry(lines);
+ 		Striplines0.setAppearance(app);
+ 		return Striplines0;
+	}
+  
+	public DisplayLines() 
+	{
+	setLayout(new BorderLayout());
+	Panel p = new Panel();
+    	p.add(new Label("学号 20171001 姓名：王五"));
         add(p, BorderLayout.NORTH);
         GraphicsConfiguration gc = SimpleUniverse.getPreferredConfiguration();
         Canvas3D c = new Canvas3D(gc);
@@ -74,7 +93,8 @@ public class DisplayPoints extends Applet {
         u.addBranchGraph(BranchGroupScene);
     }
 
-    public static void main(String[] args) {
-        new MainFrame(new DisplayPoints(), 300, 300);
+    public static void main(String[] args)
+    {
+        new MainFrame(new DisplayLines(), 800, 800);
     }
 }
