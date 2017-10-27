@@ -53,17 +53,17 @@ public class Name extends Applet {
         float vertexes[] = {-.78f, 0.4f, 0.0f, -0.52f, 0.4f, 0.0f,
                 -0.65f, .6f, 0.0f, -0.65f, -0.2f, 0.0f,
                 -.65f, 0.37f, 0.0f, -0.8f, 0.0f, 0.0f,
-                -.65f, 0.26f, 0.0f, -0.5f, 0.1f, 0.0f,//木
+                -.65f, 0.26f, 0.0f, -0.5f, 0.1f, 0.0f,//
                 -.5f, 0.52f, 0.0f, -0.1f, 0.52f, 0.0f,
                 -.52f, 0.25f, 0.0f, -0.05f, 0.25f, 0.0f,
                 -0.1f, -0.2f, 0.0f, -0.3f, -0.15f, 0.0f,
                 -.35f, 0.25f, 0.0f, -0.5f, 0.0f, 0.0f,
-                -.18f, 0.25f, 0.0f, -0.43f, -0.2f, 0.0f,//杨
+                -.18f, 0.25f, 0.0f, -0.43f, -0.2f, 0.0f,//
                 0.05f, 0.53f, 0.0f, 0.3f, 0.53f, 0.0f,
                 0.25f, 0.2f, 0.0f, 0.12f, 0.48f, 0.0f,
                 0.07f, 0.2f, 0.0f, 0.32f, 0.2f, 0.0f,
                 0.28f, -0.2f, 0.0f, 0.1f, -0.15f, 0.0f,
-                0.04f, 0.0f, 0.0f, 0.27f, 0.06f, 0.0f,//马
+                0.04f, 0.0f, 0.0f, 0.27f, 0.06f, 0.0f,//
                 0.35f, 0.43f, 0.0f, 0.7f, 0.49f, 0.0f,
                 0.45f, 0.6f, 0.0f, 0.7f, 0.2f, 0.0f,
                 0.75f, 0.35f, 0.0f, 0.68f, 0.38f, 0.0f,
@@ -71,7 +71,7 @@ public class Name extends Applet {
                 0.75f, 0.13f, 0.0f, 0.50f, 0.13f, 0.0f,
                 0.35f, -0.2f, 0.0f, 0.62f, 0.13f, 0.0f,
                 0.62f, -0.2f, 0.0f, 0.75f, -0.2f, 0.0f,
-                0.75f, -0.08f, 0.0f,//尧
+                0.75f, -0.08f, 0.0f,//
         };
         float colors[] = {1.0f, 0.0f, 0.2f, 1.0f, 0.0f, 0.3f,
                 1.0f, 0.0f, 0.4f, 1.0f, 0.0f, 0.5f,
@@ -130,7 +130,7 @@ public class Name extends Applet {
     public Name() {
         setLayout(new BorderLayout());
         Panel p = new Panel();
-    	p.add(new Label("学号 20171001 姓名：王五"));
+    	p.add(new Label("number:20151681310210, name:cck"));
         add(p, BorderLayout.NORTH);
         GraphicsConfiguration gc = SimpleUniverse.getPreferredConfiguration();
         Canvas3D c = new Canvas3D(gc);

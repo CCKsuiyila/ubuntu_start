@@ -55,7 +55,7 @@ public class myname_cck extends Applet {
         	   {-0.50f,0.80f,0.00f,-0.60f,+0.30f,0.00f,
         	    +0.40f,0.90f,0.00f,+0.60f,+0.40f,0.00f,
         	    -0.05f,1.00f,0.00f,+0.00f,+0.40f,0.00f,
-        	    -0.60f,0.30f,0.00f,+0.555f,+0.50f,0.00f,//É½
+        	    -0.60f,0.30f,0.00f,+0.555f,+0.50f,0.00f,//
         	    -0.10f,0.25f,0.00f,-0.70f,-0.10f,0.00f,
         	    -0.35f,0.10f,0.00f,-0.35f,-1.00f,0.00f,
         	    +0.05f,0.20f,0.00f,+0.15f,+0.10f,0.00f,
@@ -97,7 +97,7 @@ public class myname_cck extends Applet {
     public myname_cck() {
         setLayout(new BorderLayout());
         Panel p = new Panel();
-    	p.add(new Label("Ñ§ºÅ 20151681310210 ÐÕÃû£º´Þ³¿¿­"));
+    	p.add(new Label("number:20151681310210, name:cck"));
         add(p, BorderLayout.NORTH);
         GraphicsConfiguration gc = SimpleUniverse.getPreferredConfiguration();
         Canvas3D c = new Canvas3D(gc);
