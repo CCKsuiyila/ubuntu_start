@@ -46,22 +46,27 @@ public class E3 extends Applet{
                               0.0f,1.0f,1.f,  1.f,0.f,1.0f  };
 
         int vCount=6; 
-        PointArray points=new PointArray(vCount,PointArray.COORDINATES| PointArray.COLOR_3);
-        points.setCoordinates(0,vertexes);		
-        points.setColors(0,pointcolors);
-        Appearance app=new Appearance();
-        //定义点的属性
-        PointAttributes pointsattributes=new PointAttributes();
-        //定义点的大小
-        pointsattributes.setPointSize(70.0f);
-        //如有下面这项，空间点显示为圆球形；如无，空间点显示为正方形
-        pointsattributes.setPointAntialiasingEnable(true);
-        app.setPointAttributes(pointsattributes);
-        shapepoints.setGeometry(points);
-        shapepoints.setAppearance(app);
-        transformgroup.addChild(shapepoints);
-        BranchGroupRoot.compile();
-        return BranchGroupRoot;
+	int indexCount=3;	
+	int index[]={0,3,5};
+
+	IndexedPointArray points=new IndexedPointArray
+	(vCount,PointArray.COORDINATES|PointArray.COLOR_3,indexCount);
+	points.setCoordinates(0,vertexes);
+	points.setCoordinateIndices(0,index);	
+	points.setColors(0,pointcolors);
+	points.setColorIndices(0,index);
+	Appearance app=new Appearance();
+	PointAttributes pointsattributes=new PointAttributes();
+
+	pointsattributes.setPointSize(70.0f);
+	pointsattributes.setPointAntialiasingEnable(true);
+	app.setPointAttributes(pointsattributes);
+	shapepoints.setGeometry(points);
+	shapepoints.setAppearance(app);
+	transformgroup.addChild(shapepoints);
+	BranchGroupRoot.compile();
+	return BranchGroupRoot;
+
     }
 
         public E3() {
