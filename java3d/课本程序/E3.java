@@ -46,26 +46,26 @@ public class E3 extends Applet{
                               0.0f,1.0f,1.f,  1.f,0.f,1.0f  };
 
         int vCount=6; 
-	int indexCount=3;	
-	int index[]={0,3,5};
+	    int indexCount=3;	
+	    int index[]={0,3,5};
 
-	IndexedPointArray points=new IndexedPointArray
-	(vCount,PointArray.COORDINATES|PointArray.COLOR_3,indexCount);
-	points.setCoordinates(0,vertexes);
-	points.setCoordinateIndices(0,index);	
-	points.setColors(0,pointcolors);
-	points.setColorIndices(0,index);
-	Appearance app=new Appearance();
-	PointAttributes pointsattributes=new PointAttributes();
+	    IndexedPointArray points=new IndexedPointArray
+	    (vCount,PointArray.COORDINATES|PointArray.COLOR_3,indexCount);
+	    points.setCoordinates(0,vertexes);
+	    points.setCoordinateIndices(0,index);	
+	    points.setColors(0,pointcolors);
+	    points.setColorIndices(0,index);
+	    Appearance app=new Appearance();
+	    PointAttributes pointsattributes=new PointAttributes();
 
-	pointsattributes.setPointSize(70.0f);
-	pointsattributes.setPointAntialiasingEnable(true);
-	app.setPointAttributes(pointsattributes);
-	shapepoints.setGeometry(points);
-	shapepoints.setAppearance(app);
-	transformgroup.addChild(shapepoints);
-	BranchGroupRoot.compile();
-	return BranchGroupRoot;
+	    pointsattributes.setPointSize(70.0f);
+	    pointsattributes.setPointAntialiasingEnable(true);
+	    app.setPointAttributes(pointsattributes);
+	    shapepoints.setGeometry(points);
+	    shapepoints.setAppearance(app);
+	    transformgroup.addChild(shapepoints);
+	    BranchGroupRoot.compile();
+	    return BranchGroupRoot;
 
     }
 
