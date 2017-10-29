@@ -60,8 +60,11 @@ public class E14 extends Applet {
         u.getViewingPlatform().setNominalViewingTransform();
         u.addBranchGraph(BranchGroupScene);
     }
-    public static void main(String[] args) {
-        new MainFrame(new E14(), 300, 300);{
+    public static void main(String[] args){
+        new MainFrame(new E14(), 300,300);
+    }
+    class ShapeQuadArray extends Shape3D {
+        public ShapeQuadArray(){
             int vertexCount=12;
             float vertexes[]={-0.8f,0.9f,0.f, -0.8f,-0.8f,0.f,
                       -0.6f,-0.8f,0.f, -0.6f,0.9f,0.f,
