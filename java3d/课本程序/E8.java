@@ -63,37 +63,38 @@ public class E8 extends Applet {
     public static void main(String[] args) {
         new MainFrame(new E8(), 300, 300);
     }
-    class TriangleStrip extends Shape3D 
-    {public TriangleStrip() 
-    {int vertexesCount=12;
-    int stripCount[]=new int[3];
-    float vertexes[]={ -0.9f,0.9f,0.f, -0.8f,-0.9f,0.2f,
+    class TriangleStrip extends Shape3D {
+        public TriangleStrip() {
+            int vertexesCount=12;
+            int stripCount[]=new int[3];
+            float vertexes[]={ -0.9f,0.9f,0.f, -0.8f,-0.9f,0.2f,
                    -0.6f,0.8f,-0.2f, -0.4f,-0.8f,0.2f,
                    -0.3f,0.9f,-0.2f, -0.2f,-0.9f,0.2f,
                     0.4f,0.7f,0.0f,   0.4f,-0.7f,0.3f,
                     0.6f,0.9f,-0.3f,  0.6f,-.9f,0.0f,
                     0.9f,0.8f,0.2f,   0.8f,-0.8f,0.3f  };
-    float colors[]={    0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
+            float colors[]={    0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
                     0.0f,0.8f,.0f,   1.0f,0.0f,0.3f,
                     0.0f,1.0f,0.5f,  0.9f,1.0f,0.0f,
                     0.5f,0.0f,1.0f,  0.0f,0.5f,1.0f,
                     1.0f,0.5f,0.0f,  1.0f,0.0f,0.5f,
                     1.0f,0.8f,0.0f,  1.0f,0.5f,0.0f  };
-    //
-    stripCount[0]=4;
-    stripCount[1]=4;
-    stripCount[2]=4;
-    TriangleStripArray triangleStriparray=new TriangleStripArray(vertexesCount,
-    TriangleStripArray.COORDINATES|TriangleStripArray.COLOR_3,stripCount);
-    triangleStriparray.setCoordinates(0,vertexes);
-    triangleStriparray.setColors(0,colors);
-    PolygonAttributes polygonattributes=new PolygonAttributes();
-    polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
-    Appearance app=new Appearance();
-    app.setPolygonAttributes(polygonattributes);
-    this.setGeometry(triangleStriparray);
-    this.setAppearance(app);
-    }} 
+            //
+            stripCount[0]=4;
+            stripCount[1]=4;
+            stripCount[2]=4;
+            TriangleStripArray triangleStriparray=new TriangleStripArray(vertexesCount,
+            TriangleStripArray.COORDINATES|TriangleStripArray.COLOR_3,stripCount);
+            triangleStriparray.setCoordinates(0,vertexes);
+            triangleStriparray.setColors(0,colors);
+            PolygonAttributes polygonattributes=new PolygonAttributes();
+            polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
+            Appearance app=new Appearance();
+            app.setPolygonAttributes(polygonattributes);
+            this.setGeometry(triangleStriparray);
+            this.setAppearance(app);
+        }
+    } 
 }
 
 
