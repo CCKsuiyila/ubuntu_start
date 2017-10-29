@@ -64,34 +64,36 @@ public class E7 extends Applet {
     public static void main(String[] args) {
         new MainFrame(new E7(), 300, 300);
     }
-    class TriangleArrays extends Shape3D 
-    {public TriangleArrays() 
-    {int vCount=12;
-    float vertexes[]={ -0.6f,0.9f,0.f,  -0.6f,-0.9f,0.2f,
+    class TriangleArrays extends Shape3D {
+        public TriangleArrays() {
+            int vCount=12;
+    
+            float vertexes[]={ -0.6f,0.9f,0.f,  -0.6f,-0.9f,0.2f,
                    -0.4f,0.9f,-0.2f, -0.2f,-0.9f,0.2f,
                     0.0f,0.9f,-0.2f,  0.0f,-0.9f,0.2f,
                     0.2f,0.7f,0.0f,   0.2f,-0.9f,0.3f,
                     0.5f,0.8f,-0.3f,  0.6f,-.9f,0.0f,
                     0.8f,0.9f,0.2f,   0.8f,-0.8f,0.3f  };
-    float colors[]={           0.0f,0.5f,1.f,    0.0f,0.5f,1.f,
+            float colors[]={           0.0f,0.5f,1.f,    0.0f,0.5f,1.f,
                                0.0f,0.8f,.0f,    1.0f,0.0f,0.3f,
                                0.0f,1.0f,0.5f,   0.9f,1.0f,0.0f,
                                0.5f,0.0f,1.0f,   0.0f,0.5f,1.0f,
                                1.0f,0.5f,0.0f,   1.0f,0.0f,0.5f,
                                1.0f,0.8f,0.0f,   1.0f,0.5f,0.0f };
-     TriangleArray trianglearray= new TriangleArray
+            TriangleArray trianglearray= new TriangleArray
                   (vCount,TriangleArray.COORDINATES|TriangleArray.COLOR_3);  		
-     trianglearray.setCoordinates(0,vertexes);
-     trianglearray.setColors(0,colors);
-     PolygonAttributes polygonattributes=new PolygonAttributes();
-     polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
-     //polygonattributes.setCullFace(PolygonAttributes.CULL_FRONT);
-     //polygonattributes.setCullFace(PolygonAttributes.CULL_BACK);
-     Appearance app=new Appearance();
-     app.setPolygonAttributes(polygonattributes);
-     this.setGeometry(trianglearray);
-     this.setAppearance(app);
-    } } 
+            trianglearray.setCoordinates(0,vertexes);
+            trianglearray.setColors(0,colors);
+            PolygonAttributes polygonattributes=new PolygonAttributes();
+            polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
+            //polygonattributes.setCullFace(PolygonAttributes.CULL_FRONT);
+            //polygonattributes.setCullFace(PolygonAttributes.CULL_BACK);
+            Appearance app=new Appearance();
+            app.setPolygonAttributes(polygonattributes);
+            this.setGeometry(trianglearray);
+            this.setAppearance(app);
+        } 
+    } 
 }
 
 
