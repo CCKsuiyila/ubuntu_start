@@ -61,36 +61,34 @@ public class E14 extends Applet {
         u.addBranchGraph(BranchGroupScene);
     }
     public static void main(String[] args) {
-        new MainFrame(new E14(), 300, 300);
-    }
-    class ShapeQuadArray extends Shape3D 
-    {public ShapeQuadArray() 
-    {int vertexCount=12;
-    float vertexes[]={-0.8f,0.9f,0.f, -0.8f,-0.8f,0.f,
+        new MainFrame(new E14(), 300, 300);{
+            int vertexCount=12;
+            float vertexes[]={-0.8f,0.9f,0.f, -0.8f,-0.8f,0.f,
                       -0.6f,-0.8f,0.f, -0.6f,0.9f,0.f,
                       -0.4f,0.9f,0.f,  -0.4f,-0.7f,-0.9f,
                        0.4f,-0.8f,0.f,  0.4f,0.8f,0.0f,
                        0.5f,0.8f,0.f,   0.6f,-0.8f,0.0f,
                        0.8f,-0.7f,0.f,  0.8f,0.8f,0.f};
-    float colors[]={0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
+            float colors[]={0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
                 0.0f,0.8f,.0f,   1.0f,0.0f,0.3f,
                 0.0f,1.0f,0.5f,  0.9f,1.0f,0.0f,
                 0.5f,0.0f,1.0f,  0.0f,0.5f,1.0f,
                 1.0f,0.5f,0.0f,  1.0f,0.0f,0.5f,
                 1.0f,0.8f,0.0f,  1.0f,0.5f,0.0f };
-   QuadArray quadarray=new QuadArray(vertexCount,
-   QuadArray.COORDINATES|QuadArray.COLOR_3);
-   quadarray.setCoordinates(0,vertexes);
-   quadarray.setColors(0,colors);
-   PolygonAttributes polygonattributes=new PolygonAttributes();
-   polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
-   //polygonattributes.setCullFace(PolygonAttributes.CULL_BACK);
-   //polygonattributes.setCullFace(PolygonAttributes.CULL_FRONT);
-   Appearance app=new Appearance();
-   app.setPolygonAttributes(polygonattributes);
-   this.setGeometry(quadarray);
-   this.setAppearance(app);
-   }} 
+            QuadArray quadarray=new QuadArray(vertexCount,
+            QuadArray.COORDINATES|QuadArray.COLOR_3);
+            quadarray.setCoordinates(0,vertexes);
+            quadarray.setColors(0,colors);
+            PolygonAttributes polygonattributes=new PolygonAttributes();
+            polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
+            //polygonattributes.setCullFace(PolygonAttributes.CULL_BACK);
+            //polygonattributes.setCullFace(PolygonAttributes.CULL_FRONT);
+            Appearance app=new Appearance();
+            app.setPolygonAttributes(polygonattributes);
+            this.setGeometry(quadarray);
+            this.setAppearance(app);
+        }
+    } 
 }
 
 
