@@ -63,36 +63,37 @@ public class E9 extends Applet {
     public static void main(String[] args) {
         new MainFrame(new E9(), 300, 300);
     }
-    class ShapeTriangleFanArray extends Shape3D 
-    {public ShapeTriangleFanArray() 
-    {int vertexesCount=12;
-    int stripCount[]=new int[1];
-    //int stripCount[]=new int[2];
-    //int stripCount[]=new int[3];
-    float vertexes[]={ .0f,0.9f,0.0f,   -1.f,-0.8f,0.f,
+    class ShapeTriangleFanArray extends Shape3D {
+        public ShapeTriangleFanArray() {
+            int vertexesCount=12;
+            int stripCount[]=new int[1];
+            //int stripCount[]=new int[2];
+            //int stripCount[]=new int[3];
+            float vertexes[]={ .0f,0.9f,0.0f,   -1.f,-0.8f,0.f,
                  -0.8f,-0.6f,-0.2f, -0.6f,-0.9f,0.2f,
                  -0.4f,-0.8f,-0.2f,  0.f,-0.8f,0.2f,
                   0.2f,-0.5f,0.0f,   0.4f,-0.6f,-0.5f,
                   0.6f,-0.8f,-0.3f,  0.8f,-0.9f,-0.2f,
                   0.9f,-0.7f,-0.2f,  1.1f,-0.8f,-0.3f};
-    float colors[]={  0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
+            float colors[]={  0.0f,0.5f,1.0f,  0.0f,0.5f,1.0f,
                       0.0f,0.8f,.0f,   1.0f,0.0f,0.3f,
                       0.0f,1.0f,0.5f,  0.9f,1.0f,0.0f,
                       0.5f,0.0f,1.0f,  0.0f,0.5f,1.0f,
                       1.0f,0.5f,0.0f,  1.0f,0.0f,0.5f,
                       1.0f,0.8f,0.0f,  1.0f,0.5f,0.0f };
-    stripCount[0]=12;
-    //stripCount[1]=4;
-    //stripCount[2]=4;
-    TriangleFanArray triangleFanarray=new TriangleFanArray(vertexesCount,
-    TriangleFanArray.COORDINATES|TriangleFanArray.COLOR_3,stripCount);
-    triangleFanarray.setCoordinates(0,vertexes);
-    triangleFanarray.setColors(0,colors);
-    PolygonAttributes polygonattributes=new PolygonAttributes();
-    polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
-    Appearance app=new Appearance();
-    app.setPolygonAttributes(polygonattributes);
-    this.setGeometry(triangleFanarray);
-    this.setAppearance(app);
-}} 
+            stripCount[0]=12;
+            //stripCount[1]=4;
+            //stripCount[2]=4;
+            TriangleFanArray triangleFanarray=new TriangleFanArray(vertexesCount,
+            TriangleFanArray.COORDINATES|TriangleFanArray.COLOR_3,stripCount);
+            triangleFanarray.setCoordinates(0,vertexes);
+            triangleFanarray.setColors(0,colors);
+            PolygonAttributes polygonattributes=new PolygonAttributes();
+            polygonattributes.setCullFace(PolygonAttributes.CULL_NONE);
+            Appearance app=new Appearance();
+            app.setPolygonAttributes(polygonattributes);
+            this.setGeometry(triangleFanarray);
+            this.setAppearance(app);
+        }
+    } 
 }
