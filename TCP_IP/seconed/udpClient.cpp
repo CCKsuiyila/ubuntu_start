@@ -17,7 +17,9 @@ void main(){
 	int iSend;
 	int iRecv;
 	//
-	char send_buf[7] = "hellow";
+	printf("请输入你想发送给服务器的一串小写英文字符(不要超过1024个字符): ");
+	char send_buf[DATA_BUFFER];
+	scanf("%s",send_buf);
 	//
 	char recv_buf[DATA_BUFFER];
 	//
@@ -37,7 +39,7 @@ void main(){
 	//
 	ser.sin_family=AF_INET;
 	ser.sin_port = htons(Ser_PORT);
-	ser.sin_addr.s_addr = inet_addr("10.0.6.23");
+	ser.sin_addr.s_addr = inet_addr("192.168.1.105");
 	iLen=sizeof(ser);
 	//
 	iSend = sendto(sClient,send_buf,sizeof(send_buf),0,(struct sockaddr*)&ser,iLen);
@@ -50,7 +52,10 @@ void main(){
 			system("pause");
 			return;
 		}else{
-			printf("sendto() succeeded.\n");
+			printf("\n-----------------------------------\n");
+			printf(" 调用sendto()函数给服务器发送的信息是: %s\n",send_buf);
+			printf(" sendto() succeeded.(调用sendto()函数发送信息成功)\n\n");
+			
 		}
 	}
 	//
@@ -66,7 +71,7 @@ void main(){
 		return;
 	}else{
 		//
-		printf("recvfrom():%s\n",recv_buf);
+		printf(" 调用recvfrom()函数从服务器接收到的信息是:%s\n",recv_buf);
 		printf("-----------------------------------\n");
 	}
 	closesocket(sClient);

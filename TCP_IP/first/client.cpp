@@ -17,7 +17,7 @@ void main()
 	struct sockaddr_in ServerAddr;
 	memset(&ServerAddr,0,sizeof(ServerAddr));
 	ServerAddr.sin_family=AF_INET;
-	ServerAddr.sin_addr.s_addr=inet_addr("10.0.6.24");
+	ServerAddr.sin_addr.s_addr=inet_addr("192.168.1.103");
 		ServerAddr.sin_port = htons(5000);
 		if(connect(ClientSocket,(struct sockaddr *)&ServerAddr,sizeof(ServerAddr))==SOCKET_ERROR)
 		{printf("connect error!");

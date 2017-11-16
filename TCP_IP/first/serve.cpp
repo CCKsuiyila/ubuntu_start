@@ -18,7 +18,7 @@ void main(){
 	struct sockaddr_in ServerAddr;
 	memset(&ServerAddr,0,sizeof(ServerAddr));
 	ServerAddr.sin_family = AF_INET;
-	ServerAddr.sin_addr.s_addr = inet_addr("10.0.6.24");//
+	ServerAddr.sin_addr.s_addr = inet_addr("192.168.1.103");//
 	ServerAddr.sin_port = htons(5000);
 
 	//
@@ -48,11 +48,11 @@ void main(){
 		int len = sizeof(from);
 		SocketClient = accept(ServerSocket,(struct sockaddr*)&from,&len);//
 		if(SocketClient != INVALID_SOCKET){
-			printf("远程主机:%s 通过端口: %d 连接到服务器.../n", inet_ntoa(from.sin_addr),ntohs(from.sin_port));
+			printf("远程主机:%s 通过端口: %d 连接到服务器...\n", inet_ntoa(from.sin_addr),ntohs(from.sin_port));
 			//
 			char buf[1924],sendData[100] = "Welcome";
 			len = strlen(sendData);
-			sendData[len] - '\0';//
+			sendData[len] = '\0';//
 			if(send(SocketClient,sendData,strlen(sendData)+1,0)!=SOCKET_ERROR){
 				printf(" send welcome to client successful \n");
 			}

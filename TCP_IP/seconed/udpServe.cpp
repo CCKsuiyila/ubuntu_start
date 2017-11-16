@@ -41,7 +41,7 @@ void main()
 	//建立服务器端地址
 	ser.sin_family=AF_INET;
 	ser.sin_port=htons(DEFAULT_PORT);
-	ser.sin_addr.s_addr=inet_addr("10.0.6.23");
+	ser.sin_addr.s_addr=inet_addr("192.168.1.105");
 	//绑定地址
 	if( bind(sSocket,(const sockaddr*)&ser, sizeof(ser)) == SOCKET_ERROR)
 	{
@@ -50,7 +50,7 @@ void main()
 		return;
 	}
 	//服务器开始运行
-	printf(" Server start ...\n\n");
+	printf(" Server_cck start ...\n\n");
 	iLen = sizeof(cli);
 	//进入一个无限循环，等待接受客户端数据
 	while(1)
@@ -70,19 +70,21 @@ void main()
 		{
 			//输出接收到的数据
 			printf("\n-------------------------------------------\n");
-			printf(" recvfrom() : %s\n",recv_buf);
+			printf(" 从客户端收到的信息是 : %s\n",recv_buf);
+			printf(" 从客户端收到的信息长度为: %d\n",strlen(recv_buf));
 			//输出客户端IP地址和端口号
-			printf("  Accepted client IP:[%s],port:[%d}\n",
+			printf(" Accepted client IP:[%s],port:[%d}\n\n",
 				     inet_ntoa(cli.sin_addr), ntohs(cli.sin_port));
 		}
 		//给客户发送信息
 
 		//要发送给客户的信息
-		char   send_buf[6];
-		for(int i = 0; i<5; ++i){
+		char   send_buf[BUFFER_LENGTH];
+
+		for(int i = 0; i<strlen(recv_buf); ++i){
 			send_buf[i] = recv_buf[i]-32;
 		}
-		send_buf[5]=="\0";
+		send_buf[strlen(recv_buf)]='\0';
 		iSend=sendto(sSocket,send_buf,strlen(send_buf)+1,0,
 			(SOCKADDR*)&cli,sizeof(cli));
 		if(iSend == SOCKET_ERROR)
@@ -93,7 +95,8 @@ void main()
 		{    }
 		else
 		{
-			printf("  sendto() succeeded!\n");
+			printf(" 将从客户端接受的信息转换为大写,然后调用sendto()函数再给客户发送回去\n");
+			printf(" sendto() succeeded!(调用sendto()函数发送成功)\n");
 		}
 	}
 
