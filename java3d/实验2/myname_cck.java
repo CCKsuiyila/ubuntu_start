@@ -63,7 +63,22 @@ public class myname_cck extends Applet {
         	    -0.05f,-0.25f,0.00f,+0.40f,-0.15f,0.00f,
         	    -0.05f,-0.50f,0.00f,+0.40f,-0.40f,0.00f,
         	    -0.20f,-0.75f,0.00f,+0.60f,-0.70f,0.00f,
-        	    +0.17f,+0.05f,0.00f,+0.17f,-0.725f,0.00f,
+        	    +0.17f,+0.05f,0.00f,+0.17f,-0.725f,0.00f,//
+                +1.50f,0.90f,0.00f,+1.70f,+0.40f,0.00f,
+                +1.52f,0.90f,0.00f,+2.40f,+1.00f,0.00f,
+                +2.40f,+1.00f,0.00f,+2.20f,0.40f,0.00f,
+                +1.60f,+0.70f,0.00f,+2.00f,+0.70f,0.00f,
+                +1.70f,+0.40f,0.00f,2.20f,0.40f,0.00f,//
+                +1.30f,0.20f,0.00f,+2.60f,0.20f,0.00f,
+                +1.60f,0.20f,0.00f,+1.45f,-1.00f,0.00f,
+                +1.80f,+0.00f,0.00f,+2.20f,+0.00f,0.00f,
+                +1.85f,-0.20f,0.00f,+2.15f,-0.20f,0.00f,
+                +1.85f,-0.20f,0.00f,+1.83f,-0.80f,0.00f,
+                +1.83f,-0.80f,0.00f,+2.00f,-0.60f,0.00f,
+                +2.10f,-0.50f,0.00f,+2.30f,-0.30f,0.00f,
+                +1.84f,-0.40f,0.00f,2.60f,-0.70f,0.00f,
+
+
         };
         float colors[] = {
         		1.0f, 0.0f, 0.2f, 1.0f, 0.0f, 0.3f,
@@ -78,9 +93,23 @@ public class myname_cck extends Applet {
                 0.6f, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
                 0.6f, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
                 0.6f, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6f, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+                0.6F, 0.0f, 0.8f, 0.5f, 0.0f, 0.8f,
+
                 
         };
-        LineArray lines = new LineArray(24, LineArray.COORDINATES | LineArray.COLOR_3);
+        LineArray lines = new LineArray(50, LineArray.COORDINATES | LineArray.COLOR_3);
         lines.setCoordinates(0, vertexes);
         lines.setColors(0, colors);
         LineAttributes lineattributes = new LineAttributes();
