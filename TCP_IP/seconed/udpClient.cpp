@@ -39,7 +39,7 @@ void main(){
 	//
 	ser.sin_family=AF_INET;
 	ser.sin_port = htons(Ser_PORT);
-	ser.sin_addr.s_addr = inet_addr("192.168.1.105");
+	ser.sin_addr.s_addr = inet_addr("172.20.10.5");
 	iLen=sizeof(ser);
 	//
 	iSend = sendto(sClient,send_buf,sizeof(send_buf),0,(struct sockaddr*)&ser,iLen);

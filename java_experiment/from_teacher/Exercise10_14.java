@@ -7,7 +7,7 @@ public class Exercise10_14 {
     System.out.println("month: " + date.getMonth());
     System.out.println("day: " + date.getDay());
     
-    date = new MyDate(561555550000L);
+    date = new MyDate(34355555133101L);
     System.out.println("year: " + date.getYear());
     System.out.println("month: " + date.getMonth());
     System.out.println("day: " + date.getDay());

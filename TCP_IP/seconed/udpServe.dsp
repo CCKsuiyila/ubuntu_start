@@ -82,10 +82,6 @@ LINK32=link.exe
 # Name "udpServe - Win32 Debug"
 # Begin Source File
 
-SOURCE=.\udpClient.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\udpServe.cpp
 # End Source File
 # End Target

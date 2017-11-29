@@ -41,7 +41,7 @@ void main()
 	//建立服务器端地址
 	ser.sin_family=AF_INET;
 	ser.sin_port=htons(DEFAULT_PORT);
-	ser.sin_addr.s_addr=inet_addr("192.168.1.105");
+	ser.sin_addr.s_addr=inet_addr("172.20.10.5");
 	//绑定地址
 	if( bind(sSocket,(const sockaddr*)&ser, sizeof(ser)) == SOCKET_ERROR)
 	{
