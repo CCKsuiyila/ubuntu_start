@@ -42,7 +42,7 @@ void main(){
 	ser.sin_addr.s_addr = inet_addr("172.20.10.5");
 	iLen=sizeof(ser);
 	//
-	iSend = sendto(sClient,send_buf,sizeof(send_buf),0,(struct sockaddr*)&ser,iLen);
+	iSend = sendto(sClient,send_buf,strlen(send_buf)+1,0,(struct sockaddr*)&ser,iLen);
 	if(iSend==SOCKET_ERROR){
 		printf("sendto()Failed:%d\n",WSAGetLastError());
 		system("pause");
@@ -54,6 +54,7 @@ void main(){
 		}else{
 			printf("\n-----------------------------------\n");
 			printf(" 调用sendto()函数给服务器发送的信息是: %s\n",send_buf);
+			printf(" 调用sendto()函数给服务器发送的信息长度是: %d字节\n",iSend);
 			printf(" sendto() succeeded.(调用sendto()函数发送信息成功)\n\n");
 			
 		}

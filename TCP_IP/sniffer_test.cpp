@@ -108,11 +108,11 @@ int DecodeIPPack(char *buf,int iBufSize){
 	
 	
 	//---------如果抓到用户名和密码就输出------------
-	start = strstr(SearchPass,"user");//查找用户名
+	start = strstr(SearchPass,"qq");//查找用户名
 
-	end = strstr(SearchPass,"pass"); //查找密码
+	
 
-	if(start!=NULL&&end!=NULL){
+	if(start!=NULL){
 		printf("收到你包含你想要的信息的包了(包含pass和user)\n");
 		
 

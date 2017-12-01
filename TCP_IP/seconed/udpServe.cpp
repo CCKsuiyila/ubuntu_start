@@ -71,7 +71,7 @@ void main()
 			//输出接收到的数据
 			printf("\n-------------------------------------------\n");
 			printf(" 从客户端收到的信息是 : %s\n",recv_buf);
-			printf(" 从客户端收到的信息长度为: %d\n",strlen(recv_buf));
+			printf(" 从客户端收到的信息长度为: %d字节\n",iRecv);
 			//输出客户端IP地址和端口号
 			printf(" Accepted client IP:[%s],port:[%d}\n\n",
 				     inet_ntoa(cli.sin_addr), ntohs(cli.sin_port));
