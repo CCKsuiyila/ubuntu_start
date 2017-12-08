@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class homework_1_try{
 
@@ -16,11 +16,11 @@ public class homework_1_try{
         try{
             for(int i = 0; i<args[0].length(); ++i){
                 if(args[0].charAt(i)<'0'||args[0].charAt(i)>'9'){
-                    throw new ArithmeticException("Wrong input; "+args[0]);
+                    throw new InputMismatchException("Wrong input; "+args[0]);
                 }
             }  
         }
-        catch(ArithmeticException ex){
+        catch(InputMismatchException ex){
             System.out.println("Wrong input: "+args[0]);
             sign = 1;
         }
