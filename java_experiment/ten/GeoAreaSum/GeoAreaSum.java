@@ -65,6 +65,8 @@ class Cylinder extends GeometricObject{
 class GeoAreaSum{
 
     public static void main(String Args[]){
+	System.out.println("name:cck,number:20151681310210");
+        System.out.println("welcome to java");
 
         GeometricObject circle = new Circle(5);
         GeometricObject cylinder = new Cylinder(10,5);

@@ -1,6 +1,6 @@
 
-package java.lang;
-import java.util.Scanner;
+//package java.lang;
+import java.util.*;
 
 abstract class GeometricObject implements Comparable<GeometricObject>{
     public abstract double findArea();
@@ -13,19 +13,16 @@ abstract class GeometricObject implements Comparable<GeometricObject>{
 
     public static String max(GeometricObject one,GeometricObject two){
         if(one.findArea()>two.findArea()){
-            System.out.println("one is bigger");
             return "one is bigger";
         }else if(one.findArea()==two.findArea()){
-            System.out.println("one equals to two");
             return "one equals to two";
         }else{
-            System.out.println("two is bigger");
             return "two is bigger";
         }
     }
 }
 
-class Rectangle extends GeometricObject implements Comparable<Rectangle>{
+class Rectangle extends GeometricObject /*implements Comparable<Rectangle>*/{
     private double w;
     private double h;
 
@@ -47,7 +44,7 @@ class Rectangle extends GeometricObject implements Comparable<Rectangle>{
     }
 }
 
-class Circle extends GeometricObject implements Comparable<Circle>{
+class Circle extends GeometricObject /*implements Comparable<Circle>*/{
     private double r;
 
     public Circle(double r){
@@ -71,7 +68,7 @@ class Circle extends GeometricObject implements Comparable<Circle>{
     }
 }
 
-class Cylinder extends GeometricObject implements Comparable<Cylinder>{
+class Cylinder extends GeometricObject /*implements Comparable<Cylinder>*/{
     private double h;
     private double r;
 
@@ -95,20 +92,21 @@ class Cylinder extends GeometricObject implements Comparable<Cylinder>{
 
 class homework_5{
 
-    public static void main(String Args[]){
+    public static void main(String args[]){
 
-        GeometricObject circle = new Circle(5);
-        GeometricObject cylinder = new Cylinder(10,5);
-        GeometricObject rectangle = new Rectangle(6,8);
-        GeometricObject[] a = {circle,cylinder,rectangle};
-        System.out.println(sumArea(a));
+	System.out.println("name:cck,number:20151681310210");
+        System.out.println("welcome to java");
+        GeometricObject circle_one = new Circle(5);
+        System.out.println("the circle_one'radius: "+ 5);
+        GeometricObject circle_two = new Circle(10);
+        System.out.println("the circle_two'radius: "+ 10);
+        System.out.println("the circle: "+GeometricObject.max(circle_one,circle_two));
+
+        GeometricObject rectangle_one = new Rectangle(2,2);
+        System.out.println("the rectangle_one'sides: "+ 2 +" "+2);
+        GeometricObject rectangle_two = new Rectangle(3,3);
+        System.out.println("the rectangle_two'sides: "+ 3 +" "+3);
+        System.out.println("the rectangle: "+GeometricObject.max(rectangle_one,rectangle_two));
     }
-    public static double sumArea(GeometricObject[] a){
-        double sum = 0;
-        for(int i=0; i<3; ++i){
-            sum += a[i].findArea();
-        }
-        
-        return sum;
-    }
+    
 }

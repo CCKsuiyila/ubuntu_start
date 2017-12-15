@@ -57,7 +57,6 @@ class Cylinder extends Circle{
     //重写覆盖
     public double findArea(){
         double temp_r = super.getR();
-        System.out.println(temp_r);
         return (Math.PI)*temp_r*temp_r*2+(Math.PI)*temp_r*2*h;
     }
     public double findPerimeter(){
@@ -69,6 +68,9 @@ class Cylinder extends Circle{
 class GeoAreaSum{
 
     public static void main(String Args[]){
+
+	System.out.println("name:cck,number:20151681310210");
+        System.out.println("welcome to java");
 
         GeometricObject circle = new Circle(5);
         GeometricObject cylinder = new Cylinder(10,5);
