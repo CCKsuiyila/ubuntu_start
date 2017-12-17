@@ -1,7 +1,10 @@
 #include "Winsock2.h"
 #include "stdio.h"
 #include "string.h"
+#include "time.h"
+#include "stdlib.h"
 #pragma comment(lib,"wsock32.lib")
+
 
 #define RECV_PORT 3000
 #define SEND_PORT 3001
@@ -55,16 +58,6 @@ void main(){
 		return;
 	}
 	
-	char buf[1024] = "/name:Please send your name\0";
-	n = sendto(sock,buf,strlen(buf) + 1,0,(const sockaddr *)&broadAddr,sizeof(broadAddr));
-	
-	if(n == SOCKET_ERROR){
-		printf(" BROADCAST data error! \n");
-		printf(" The error code: %d \n", WSAGetLastError());
-		}else{
-			printf("Send BROADCAST data: \"%s\" ok! \n\n",buf);
-	}
-	
 	if(bind(ServerSock,(struct sockaddr *)&ServerAddr,sizeof(ServerAddr)) == SOCKET_ERROR){
 		printf(" Binding error! \n");
 		printf(" The error code: %d \n",WSAGetLastError());
@@ -75,63 +68,59 @@ void main(){
 		printf("Binding ok! start recieving data from clients ... \n");
 	}
 	
+	char buf[1024] = "Server_cck /name:Please send your name\0";
+	n = sendto(sock,buf,strlen(buf) + 1,0,(const sockaddr *)&broadAddr,sizeof(broadAddr));
+	
+	if(n == SOCKET_ERROR){
+		printf(" BROADCAST data error! \n");
+		printf(" The error code: %d \n", WSAGetLastError());
+		}else{
+			printf("Send BROADCAST data: \"%s\" ok! \n\n",buf);
+	}
+	
+	FILE *myfile=fopen("cck_save_name_and_number.txt","a+");
+	
+	time_t t;
+	struct tm *gmt;
+	t=time(NULL);
+	gmt = gmtime(&t);
+	
+	time_t t_c; 
+	time(&t_c); 
+
+	
+	fprintf(myfile,"-------------------------------------------\n");
+	fprintf(myfile,"%格林威治时间\n");
+	fprintf(myfile,"%s\n",asctime(gmt));
+	fprintf(myfile,"%北京时间\n");
+	fprintf(myfile,"%s\n",ctime(&t_c));
+	
+	fclose(myfile);
+	
+	
 	while(1){
+		
 		sockaddr_in ClientAddr;
 		memset(&buf,'\0',sizeof(buf));
-		memset(&ClientAddr,0,sizeof(ClientAddr));;
+		memset(&ClientAddr,0,sizeof(ClientAddr));
 		n = sizeof(ClientAddr);
 		n = recvfrom(ServerSock,buf,sizeof(buf),0,(struct sockaddr *)&ClientAddr, &n);
 		
 		if( n!= SOCKET_ERROR){
 			printf("\n 接收远程主机 %s 传回的数据: %s \n", inet_ntoa(ClientAddr.sin_addr),buf);
+			
+			myfile=fopen("cck_save_name_and_number.txt","a+");
+			fputs(buf,myfile);
+			fputs("\n",myfile);
+			fclose(myfile);
 		}
 	}
+	
 	
 	closesocket(sock);
 	closesocket(ServerSock);
 	WSACleanup();
 }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
