@@ -9,41 +9,44 @@ import com.sun.j3d.utils.image.*;
 import java.applet.*;
 import com.sun.j3d.utils.applet.MainFrame;
 import com.sun.j3d.utils.behaviors.mouse.*;
-public class BezierSurfaceTextureNew extends Applet 
-{ public static void main(String[] args)
-   {new MainFrame(new BezierSurfaceTextureNew(), 750, 730);}
-public void init()
-{   Panel p = new Panel();
-p.add(new Label("name:cck,number:20151681310210"));
-add(p, BorderLayout.NORTH);
-GraphicsConfiguration gc=SimpleUniverse.getPreferredConfiguration();
-    Canvas3D cv = new Canvas3D(gc);
-    setLayout(new BorderLayout());
-    add(cv, BorderLayout.CENTER);
-    BranchGroup bg = createSceneGraph();
-    bg.compile();
-    SimpleUniverse su = new SimpleUniverse(cv);
-    su.getViewingPlatform().setNominalViewingTransform();
-    su.addBranchGraph(bg);
-  }
-  private BranchGroup createSceneGraph() 
-   {BranchGroup BranchGroupRoot = new BranchGroup();
-    Transform3D t = new Transform3D();
-    TransformGroup trans= new TransformGroup(t);
-    trans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
-    BranchGroupRoot.addChild(trans);
-    BoundingSphere bounds = new BoundingSphere();
-    //定义鼠标旋转 
-    MouseRotate mouserotate = new MouseRotate();
-    mouserotate.setTransformGroup(trans);
-    BranchGroupRoot.addChild(mouserotate); 
-    mouserotate.setSchedulingBounds(bounds);
-    //定义背景
-    Background background = new Background(1.0f, 1.0f, 1.0f);
-    background.setApplicationBounds(bounds);
-    BranchGroupRoot.addChild(background);
-    //定义Bezier曲面的16个控制顶点
-float[][][] P1={{{-1.3f,-0.9f,-0.8f,1.f},
+public class BezierSurfaceTextureNew extends Applet { 
+    public static void main(String[] args){
+        new MainFrame(new BezierSurfaceTextureNew(), 750, 730);
+    }
+
+    public void init(){   
+        Panel p = new Panel();
+        p.add(new Label("name:cck,number:20151681310210"));
+        add(p, BorderLayout.NORTH);
+        GraphicsConfiguration gc=SimpleUniverse.getPreferredConfiguration();
+        Canvas3D cv = new Canvas3D(gc);
+        setLayout(new BorderLayout());
+        add(cv, BorderLayout.CENTER);
+        BranchGroup bg = createSceneGraph();
+        bg.compile();
+        SimpleUniverse su = new SimpleUniverse(cv);
+        su.getViewingPlatform().setNominalViewingTransform();
+        su.addBranchGraph(bg);
+    }
+  
+    private BranchGroup createSceneGraph() {
+        BranchGroup BranchGroupRoot = new BranchGroup();
+        Transform3D t = new Transform3D();
+        TransformGroup trans= new TransformGroup(t);
+        trans.setCapability(TransformGroup.ALLOW_TRANSFORM_WRITE);
+        BranchGroupRoot.addChild(trans);
+        BoundingSphere bounds = new BoundingSphere();
+        //定义鼠标旋转 
+        MouseRotate mouserotate = new MouseRotate();
+        mouserotate.setTransformGroup(trans);
+        BranchGroupRoot.addChild(mouserotate); 
+        mouserotate.setSchedulingBounds(bounds);
+        //定义背景
+        Background background = new Background(1.0f, 1.0f, 1.0f);
+        background.setApplicationBounds(bounds);
+        BranchGroupRoot.addChild(background);
+        //定义Bezier曲面的16个控制顶点
+        float[][][] P1={{{-1.3f,-0.9f,-0.8f,1.f},
                  {-0.2f,-0.8f,0.9f,1.f},
                  {0.2f,-0.9f,-0.8f,1.f},
                  {0.8f,-0.8f,0.44f,1.f} },
@@ -59,10 +62,10 @@ float[][][] P1={{{-1.3f,-0.9f,-0.8f,1.f},
                  {-0.2f,0.7f,-0.5f,1.f},
                  {0.2f,0.6f,-0.9f,1.f},
                  {1.f,1.1f,-0.5f,1.f}  }};
-    Appearance app = new Appearance();
-    TextureLoader loader = new TextureLoader("maotouying.jpg",2, this);
-    ImageComponent2D image = loader.getImage();
-    Texture2D texture = new Texture2D(Texture.BASE_LEVEL, Texture.RGBA,
+        Appearance app = new Appearance();
+        TextureLoader loader = new TextureLoader("maotouying.jpg",2, this);
+        ImageComponent2D image = loader.getImage();
+        Texture2D texture = new Texture2D(Texture.BASE_LEVEL, Texture.RGBA,
               image.getWidth(), image.getHeight());
     texture.setImage(0, image);
     texture.setEnable(true);

@@ -12,8 +12,8 @@ public class AxisAngle4fc extends Applet
 public AxisAngle4fc() 
 {setLayout(new BorderLayout());
 Panel p = new Panel();
-p.add(new Label("name:cck,number:20151681310210"));
-add(p, BorderLayout.NORTH);
+        p.add(new Label("name:cck,number:20151681310210 "));
+        add(p, BorderLayout.NORTH);
 GraphicsConfiguration gc = SimpleUniverse.getPreferredConfiguration();
 Canvas3D c=new Canvas3D(gc);
 add("Center",c);
