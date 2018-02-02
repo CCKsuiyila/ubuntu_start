@@ -85,19 +85,15 @@ public class xuanzhuanmuma extends Applet {
         BrachGroupRoot.addChild(mousetranslate);
         mousetranslate.setSchedulingBounds(bounds);
 
-        //定义基本体及外观属性与坐标变换
-        //身体
         t=new Transform3D();
         t.setTranslation(new Vector3f(0.0f,0.0f,0.0f));
         TransformGroup tg1=new TransformGroup(t);
         tg1.addChild(new Box(0.3f,0.15f,0.2f,app2));
 
-        //头
         t=new Transform3D();
         t.setTranslation(new Vector3f(0.3f,0.0f,0.3f));
         TransformGroup tg2=new TransformGroup(t);
         tg2.addChild(new Sphere(0.2f,1,100,app1));
-        //四条腿 
         t=new Transform3D();
         t.setTranslation(new Vector3f(-0.15f,0.1f,-0.3f));
         TransformGroup tg3=new TransformGroup(t);
@@ -118,9 +114,7 @@ public class xuanzhuanmuma extends Applet {
         TransformGroup tg6=new TransformGroup(t);
         tg6.addChild(new Box(0.05f,0.05f,0.2f,app2));
  
-        //吊绳
         t=new Transform3D();
-        //让圆柱体绕向量（1,1,1）逆时针旋转45度
         Vector3f vector3f=new Vector3f(1.f,1.f,1.f);
         vector3f.normalize();
         float theta=(float)Math.PI/2*3;
@@ -135,9 +129,7 @@ public class xuanzhuanmuma extends Applet {
         tg7.addChild(new Cylinder(0.05f,1.8f,app1));
         
         
-        //尾巴
         t=new Transform3D();
-        //让圆柱体绕向量（1,1,1）逆时针旋转45度
         vector3f=new Vector3f(1.f,1.f,1.f);
         vector3f.normalize();
         theta=(float)Math.PI;
@@ -163,10 +155,8 @@ public class xuanzhuanmuma extends Applet {
         transformgroup0.addChild(tg9);
         //transformgroup0.addChild(tg10);
         
-        //建立SharedGroup对象
         SharedGroup sharedgroup=new SharedGroup();
         sharedgroup.addChild(transformgroup0);
-        //5次复制及其各旋转，并绕一个圆周分布
         int i,j,k;
         float theta1,R=0.6f;
         theta1=2.0f*(float)Math.PI/5;
@@ -178,7 +168,6 @@ public class xuanzhuanmuma extends Applet {
         temp.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
         for(i=0;i<5;i++){
             Transform3D t1=new Transform3D();
-            //也可用下列旋转语句
             //t1.set(new AxisAngle4d(0.3,0.5,0.1,Math.PI*1.7*i));
             t1.setRotation(new AxisAngle4d(0.0,0.,0.3,Math.PI*1.7*i));
             t1.setScale(0.3f);
@@ -192,7 +181,6 @@ public class xuanzhuanmuma extends Applet {
         }
         
         
-        //顶
         Transform3D t2=new Transform3D();
         t2.setTranslation(new Vector3f(0.0f,-0.3f,0.35f));
         TransformGroup tg8=new TransformGroup(t2);

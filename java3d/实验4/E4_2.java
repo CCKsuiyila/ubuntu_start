@@ -164,7 +164,6 @@ public class E4_2 extends Applet {
             for(i=0;i<n0+1;i++)
                 for(j=0;j<n0+1;j++){
                     UU[0][0]=1.f;
-
                     UU[0][1]=UV[i][j][0];
                     UU[0][2]=UV[i][j][0]*UV[i][j][0];
                     UU[0][3]=UV[i][j][0]*UV[i][j][0]*UV[i][j][0];
@@ -208,14 +207,10 @@ public class E4_2 extends Applet {
             for(i=0;i<n0;i++) {
                 for(j=0;j<n0;j++){
                     //
-                    Point3f A=new Point3f(SurfaceXYZ[i][j][0],
-                    SurfaceXYZ[i][j][1], SurfaceXYZ[i][j][2]);
-                    Point3f B=new Point3f(SurfaceXYZ[i][j+1][0],
-                    SurfaceXYZ[i][j+1][1],SurfaceXYZ[i][j+1][2]);
-                    Point3f C=new Point3f(SurfaceXYZ[i+1][j+1][0],
-                    SurfaceXYZ[i+1][j+1][1],SurfaceXYZ[i+1][j+1][2]);
-                    Point3f D=new Point3f(SurfaceXYZ[i+1][j][0],
-                    SurfaceXYZ[i+1][j][1],SurfaceXYZ[i+1][j][2]);
+                    Point3f A=new Point3f(SurfaceXYZ[i][j][0],SurfaceXYZ[i][j][1], SurfaceXYZ[i][j][2]);
+                    Point3f B=new Point3f(SurfaceXYZ[i][j+1][0],SurfaceXYZ[i][j+1][1],SurfaceXYZ[i][j+1][2]);
+                    Point3f C=new Point3f(SurfaceXYZ[i+1][j+1][0],SurfaceXYZ[i+1][j+1][1],SurfaceXYZ[i+1][j+1][2]);
+                    Point3f D=new Point3f(SurfaceXYZ[i+1][j][0],SurfaceXYZ[i+1][j][1],SurfaceXYZ[i+1][j][2]);
                     //
                     Vector3f a = new Vector3f(A.x - B.x, A.y - B.y, A.z - B.z);
                     Vector3f b = new Vector3f(C.x - B.x, C.y - B.y, C.z - B.z);
